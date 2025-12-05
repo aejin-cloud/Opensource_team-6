@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>예림 소개 페이지</title>
+  <style>
+    body { background:#ffeef7; font-family: Inter, sans-serif; padding:40px; }
+    .box { max-width:800px; margin:0 auto; background:white; padding:30px; border-radius:12px; box-shadow:0 4px 15px rgba(0,0,0,0.1); }
+    textarea { width:100%; height:200px; padding:15px; border-radius:8px; border:1px solid #ccc; resize:none; font-size:16px; }
+    button { margin-top:15px; padding:12px 20px; border:none; border-radius:8px; background:#ff9ccf; color:white; font-size:16px; cursor:pointer; }
+    button:hover { opacity:0.9; }
+  </style>
+</head>
+<body>
+
+  <div class="box">
+    <h2>예림 소개 페이지</h2>
+    <p>자기 소개 내용을 입력하고 저장하세요.</p>
+
+    <textarea id="introText" placeholder="여기에 자기소개 입력..."></textarea>
+    <button onclick="saveIntro()">저장하기</button>
+  </div>
+
+<script>
+  window.onload = function(){
+      const saved = localStorage.getItem("intro_yerim");
+      if(saved){
+          document.getElementById("introText").value = saved;
+      }
+  }
+
+  function saveIntro(){
+      const text = document.getElementById("introText").value;
+      localStorage.setItem("intro_yerim", text);
+      alert("저장되었습니다!");
+  }
+</script>
+
+</body>
+</html>
