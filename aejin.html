@@ -9,7 +9,7 @@
         body { background:#f7f2e8; }
         
         /* 공통 컨테이너 스타일 */
-        .intro-box, .family-box, .mbti-box {
+        .intro-box, .family-box, .mbti-box, .pros-box, .hobby-box{
             max-width: 800px; margin:50px auto;
             background:#ffffff; padding:30px;
             border-radius:15px;
@@ -37,6 +37,15 @@
             border-radius: 8px;
         }
 
+         .hobby-content {
+            display: flex; /* 사진과 텍스트를 나란히 배치 */
+            gap: 20px;
+            align-items: flex-start;
+            padding: 15px;
+            border: 1px solid #eee;
+            border-radius: 8px;
+            justify-content: space-between;
+        }
         /* 프로필 사진 스타일 */
         .profile-photo {
             width: 150px;
@@ -75,6 +84,31 @@
             list-style-type: disc; 
             margin-left: 20px;
         }
+
+        .pros-content {
+             padding: 15px;
+             border: 1px solid #eee;
+             border-radius: 8px;
+             line-height: 1.6;
+        }
+
+         .hobby-content {
+             padding: 15px;
+             border: 1px solid #eee;
+             border-radius: 8px;
+             line-height: 1.6;
+             text-align: justify;
+         }
+
+        .hobby-photo {
+            display: block;      /* 가운데 정렬 */
+            margin: 20px auto;   /* 상하 여백 + 중앙 정렬 */
+            width: 200px;        /* 원하는 크기로 조절 */
+            border-radius: 10px; /* 모서리 둥글게 */
+}
+
+
+    
     </style>
 </head>
 <body>
@@ -132,6 +166,26 @@
     </div>
 </div>
 
+<div class="pros-box">
+    <h2>장점</h2>
+    <p>성실, 배려, 생각</p>
+    
+    <div class="pros-content">
+        <p>.</p>
+       
+    </div>
+</div>
 
+<div class="hobby-box">
+    <h2>취미</h2>
+    <p>첼로, 독서, 글쓰기</p>
+    
+    <div class="hobby-content">
+        <p><strong>첼로:</strong> 저는 8살부터 첼로를 시작해, 지금 13년째 첼로를 취미로 연주하고 있어요. 레슨과 학교 오케스트라를 꾸준히 병행했어요. 악기를 연습하다가 잘 안 될떄면 무척 힘든 날도 있지만, 악기를 통해 느끼는 행복과 열정이 훨씬 커요! 에리카에 입학하고 나서도, 오케스트라 동아리인 '엔젤루스'에서 첼로 수석으로 활동하고 있어요. </p>
+        <P><strong>독서:</strong> 저는 다독가는 아니지만, 애독가입니다. 중고등학생 시절에 과제로 한달에 한두권 꾸준히 책을 읽던 것이 계기가 되어, 책을 읽는 취미가 생겼습니다. 저는 특히 문학 작품을 좋아합니다. 바쁜 시기에는 책을 많이 읽지 못하지만, 제 메모장에는 읽고 싶은 책들이 한가득이에요!  </P>
+        <p><strong>글쓰기:</strong> 생각과 감정을 글로 옮기는 것을 좋아합니다. 일기와는 조금 다른 것 같아요. 신년이 되면 매번 일기를 꾸준히 쓰자 다짐하지만, 성공한 적이 없어요.. 그대신 저는 저만의 노트 한권을 지니고 다니면서, 잊고 싶지 않은 감정, 글, 아이디어 등을 발견하면 바로 제 노트 속으로 데려옵니다. 제 검은 노트는 아주 소중한 제 친구예요!</p>
+    <img src="hobby_photo.png" alt="취미 관련 사진" class="hobby-photo">
+    </div>
+</div>
 </body>
 </html>
