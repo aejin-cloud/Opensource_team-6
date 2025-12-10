@@ -11,7 +11,7 @@
       --muted: #6b6b6b;
 
       /* 개인 색상 */
-      --jin-main: #3B82F6; /* 파랑 */
+      --jin-main: #93C5FD; /* 파랑 */
       --yerim-main: #FBCFE8; /* 파스텔 핑크 */
       --chang-main: #111111; /* 검정 */
       --aejin-main: #D6C4A0; /* 연갈색 */
@@ -67,7 +67,6 @@
     .aejin{--accent:var(--aejin-main)}
 
     .jin .avatar-lg{background:var(--jin-main)}
-    .yerim .avatar-lg{background:linear-gradient(90deg,#ffd6e8,#ccfbf1);color:#333}
     .chang .avatar-lg{background:#111}
     .aejin .avatar-lg{background:linear-gradient(90deg,var(--aejin-main),var(--aejin-accent));color:#111}
 
@@ -77,7 +76,100 @@
 
     .muted{color:var(--muted)}
     .spacer{height:18px}
+
+
+    /* 예림 사진 스타일 */
+
+.yerim-photo {
+    background-image: url('yerim.png'); /* 정확한 파일 경로 */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+    /* .avatar-lg에 이미 있지만, 혹시 모를 충돌 방지를 위해 유지 */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    
+    /* 텍스트 숨김 및 아바타 모양 유지 (매우 중요) */
+    display: block; /* grid를 block으로 오버라이드하여 텍스트 숨김을 돕습니다. */
+    font-size: 0; 
+}
+
+.yerim-name {
+    background: var(--yerim-main); /* 파스텔 핑크 */
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+ /* 애진 사진 스타일 */
+
+.aejin-photo {
+    background-image: url('aejin.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    font-size: 0;
+}
+
+.aejin-name {
+    background: var(--aejin-main); /* 연갈색 */
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+
+ /* 창민 사진 스타일 */
+
+.changmin-photo {
+    background-image: url('changmin.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    font-size: 0;
+}
+
+.changmin-name {
+    background: var(--changmin-main); /* 검은색 */
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
+
+ /* 진근 사진 스타일 */
+
+.jin-photo {
+    background-image: url('jingeun.png'); 
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    display: block;
+    font-size: 0;
+}
+
+.jin-name {
+    background: var(--jin-main); /* 검은색 */
+    padding: 4px 10px;
+    border-radius: 8px;
+}
+
   </style>
+
+
 </head>
 <body>
 <div class="wrap">
@@ -98,74 +190,61 @@
   <div class="tiles" id="people">
     <a class="tile jin" href="jin.html" style="border-left:6px solid var(--jin-main)">
       <div class="name">진근</div>
-      <div class="role">파란 계열 · 개발자</div>
     </a>
 
     <a class="tile yerim" href="yerim.html" style="border-left:6px solid var(--yerim-main)">
       <div class="name">예림</div>
-      <div class="role">파스텔 톤 · 디자이너</div>
     </a>
 
     <a class="tile chang" href="changmin.html" style="border-left:6px solid var(--chang-main)">
       <div class="name">창민</div>
-      <div class="role">검은색 · DevOps / 보안</div>
     </a>
 
     <a class="tile aejin" href="aejin.html" style="border-left:6px solid var(--aejin-main)">
       <div class="name">애진</div>
-      <div class="role">연갈색·연두 톤 · 콘텐츠</div>
     </a>
   </div>
 
   <!-- 이하 개인 섹션들은 그대로 유지 -->
   <section id="jin" class="person jin">
     <div class="head">
-      <div class="avatar-lg">J</div>
+      <div class="avatar-lg jin-photo"></div>
       <div>
-        <h2>진근 <span class="accent">Developer</span></h2>
-        <p class="lead muted">색상: 파란 계열</p>
+        <h2><span class="jin-name">진근</span></h2>
       </div>
     </div>
-    <p>주요 기술: HTML, CSS, JavaScript, React, Node.js</p>
-    <p class="muted">프로젝트, 블로그 링크 등을 여기에 추가하세요.</p>
   </section>
 
   <section id="yerim" class="person yerim">
     <div class="head">
-      <div class="avatar-lg">Y</div>
+      <div class="avatar-lg yerim-photo"></div>
       <div>
-        <h2>예림 <span class="accent">Design</span></h2>
-        <p class="lead muted">색상: 파스텔 톤</p>
+        <h2><span class="yerim-name">예림</span></h2>
+        <p class="motto">“나는 끈기와 성실함이 있는 사람이다.”</p>
       </div>
     </div>
-    <p>주요 스타일: UI/UX, 일러스트, 브랜드 디자인</p>
-    <p class="muted">포트폴리오 사진 등을 넣으면 좋아요.</p>
   </section>
 
   <section id="changmin" class="person chang">
     <div class="head">
-      <div class="avatar-lg">C</div>
+      <div class="avatar-lg changmin-photo"></div>
       <div>
-        <h2>창민 <span class="accent">Ops</span></h2>
-        <p class="lead muted">색상: 블랙 · 다크 스타일</p>
+        <h2><span class="changmin-name">창민</span></h2>
       </div>
     </div>
-    <p>주요 역할: 인프라, CI/CD, 보안 모니터링</p>
   </section>
 
   <section id="aejin" class="person aejin">
     <div class="head">
-      <div class="avatar-lg">A</div>
+      <div class="avatar-lg aejin-photo"></div>
       <div>
-        <h2>애진 <span class="accent">Creative</span></h2>
-        <p class="lead muted">색상: 연갈색 + 연두</p>
+        <h2><span class="aejin-name">애진</span></h2>
       </div>
     </div>
-    <p>주요 활동: 콘텐츠 제작, 에디팅, 사진</p>
   </section>
 
   <div id="contact" style="margin-top:40px;text-align:center;color:var(--muted)">
-    © 2025 개인 포트폴리오 — 수정 가능
+    © 2025 개인 포트폴리오
   </div>
 
 </div>
