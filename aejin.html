@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>애진 소개</title>
+
+    <!-- SUIT 기본 폰트 -->
+    <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
+
+    <!-- 고운돋움(Gowun Dodum) 폰트 추가 -->
+    <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="assets/css/main.css" />
+
+    <style>
+        /* 기본 폰트: 영어는 SUIT 유지 */
+        body {
+            background:#f7f2e8;
+            font-family: "SUIT", sans-serif;
+        }
+
+        /* 한글만 고운돋움 적용 */
+        :lang(ko) {
+            font-family: 'Gowun Dodum', "SUIT", sans-serif;
+        }
+
+        /* 공통 컨테이너 스타일 */
+        .intro-box,
+        .family-box,
+        .mbti-box,
+        .likes-box,
+        .hobby-box,
+        .personality-box {
+            max-width: 800px;
+            margin:50px auto;
+            background:#ffffff;
+            padding:30px;
+            border-radius:15px;
+            box-shadow:0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .intro-content,
+        .mbti-content,
+        .hobby-content {
+            display:flex;
+            gap:20px;
+            align-items:flex-start;
+            padding:15px;
+            border:1px solid #eee;
+            border-radius:8px;
+        }
+
+        .mbti-content { flex-direction:row-reverse; }
+        .hobby-content { justify-content:space-between; text-align:justify; }
+
+        .profile-photo {
+            width:150px;
+            height:200px;
+            object-fit:cover;
+            border-radius:10px;
+            flex-shrink:0;
+        }
+
+        .hobby-photo {
+            display:block;
+            margin:20px auto;
+            width:200px;
+            border-radius:10px;
+            object-fit:cover;
+        }
+
+        .hobby-photo.square {
+            width:200px;
+            height:200px;
+        }
+
+        .text-info {
+            flex-grow:1;
+            line-height:1.6;
+        }
+
+        .text-info ul {
+            list-style:none;
+            padding:0;
+            margin-top:10px;
+        }
+
+        .text-info li { margin-bottom:5px; }
+
+        .family-content,
+        .likes-content,
+        .personality-content {
+            padding:15px;
+            border:1px solid #eee;
+            border-radius:8px;
+            line-height:1.6;
+        }
+
+        .mbti-box .mbti-content ul {
+            list-style-type:disc;
+            margin-left:20px;
+        }
+    </style>
+</head>
+<body>
+
+<section class="intro-box" aria-labelledby="intro-heading">
+    <h2 id="intro-heading">저를 소개합니다</h2>
+
+    <div class="intro-content">
+        <img src="애진프로필사진.png" alt="김애진 프로필 사진" class="profile-photo" width="150" height="150">
+
+        <div class="text-info">
+            <p>이름: 김애진</p>
+            <p>생년월일: 2006.08.29</p>
+            <ul>
+                <li>직업: 대학생</li>
+                <li>거주지: 강원특별자치도 원주시</li>
+                <li>이메일: aejinkim0829@gmail.com</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="family-box" aria-labelledby="family-heading">
+    <h2 id="family-heading">가족을 소개합니다</h2>
+    <p>움툼지 가족</p>
+
+    <div class="family-content">
+        <p>짐바브웨 언어로 '쉴터'라는 뜻을 가진 '움툼지'는 우리 가족 이름입니다.</p>
+        <p>엄마, 아빠, 오빠, 저, 남동생, 여동생, 그리고 토끼와 강아지까지 대가족을 이루고 있어요.</p>
+        <p>손님도 끊이지 않는 항상 복작복작하지만 우리집이지만, 방문하는 모든 이들에개 평범한 행복을 주는 쉴터가 되길 바라요!</p>
+        <p>움툼지는 제가 언제든 쉬어갈 수 있는 든든한 곳입니다.</p>
+    </div>
+</section>
+
+<section class="intro-box mbti-box" aria-labelledby="mbti-heading">
+    <h2 id="mbti-heading">MBTI</h2>
+    <p>MBTI로 보는 김애진의 성격 유형</p>
+
+    <div class="mbti-content">
+        <img src="mbti_image2.png" alt="MBTI 이미지" class="profile-photo" width="150" height="150">
+
+        <div class="text-info">
+            <p>저의 MBTI는 INTJ (전략가)입니다.</p>
+            <p>비전과 실용주의가 결합된 성격</p>
+            <p>분석적인 마인드- 주변 세계를 이해하려는 끊임없는 노력</p>
+            <p>전략적인 사고방식- 다양한 사태를 대비한 계획</p>
+            <p>독립적인 성향- 자율성 중시, 주체적인 일처리 선호</p>
+            <p>완벽주의 & 효율성 중시</p>
+            <ul>
+                <li>특징: 통찰력, 조용하고 신비로운 분위기, 이상주의적</li>
+                <li>관계: 진실되고 의미 있는 깊은 관계를 추구합니다.</li>
+                <li>생각: 미래 지향적이며, 목표 달성을 위해 계획을 세우는 것을 좋아합니다.</li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section class="personality-box" aria-labelledby="personality-heading">
+    <h2 id="personality-heading">성격</h2>
+    <p>나의 실제 성격</p>
+
+    <div class="personality-content">
+        <p>차분하고 조용한 편이지만, 좋아하는 일이나 중요한 일에는 적극적으로 에너지를 쏟는 스타일입니다. 
+        혼자만의 시간에서 큰 힘을 얻고, 생각을 깊게 하는 것을 좋아해요. 사람들과의 관계에서는 진정성을 중요하게 생각하며, 
+        누군가에게 도움이 될 수 있는 행동이나 말에 가치를 둡니다.</p>
+    </div>
+</section>
+
+<section class="likes-box" aria-labelledby="likes-heading">
+    <h2 id="likes-heading">좋아하는 것</h2>
+    <p>과일, 야채, 음악</p>
+    
+    <div class="likes-content">
+        <p><strong>과일:</strong> 거의 모든 과일을 좋아하지만, 특히나 좋아하는 과일은 <strong>복숭아, 토마토, 체리, 포도</strong>입니다. 손에 묻지 않고 간단히 먹을 수 있는 과일을 선호하는 것 같아요. 과일만 먹거나, 요거트와 그래놀라와 함께 먹는 것을 무척 좋아해요.</p>
+        <p><strong>야채:</strong> 신선한 야채들을 좋아해요! 푸른 채소를 특히 좋아하기 때문에, <strong>월남쌈, 샐러드, 샤브샤브</strong>와 같은 음식들을 좋아합니다.</p>
+        <p><strong>음악:</strong> 가요, 팝송, 클래식 장르의 음악을 좋아해요. 노래는 항상 저의 일상에 함께하는 것 같아요. 공부를 할 때도, 책을 읽을 때도, 그냥 방에서 쉴 때도 노래를 듣습니다. 슬플 때도 노래를 통해 위로를 받곤 해요.</p> 
+        <p>요즘 가장 많이 듣는 노래 세 곡을 추천해드릴게요!</p>
+        <p><strong>💿 안부를 묻진 않아도 -이상순</strong></p>
+        <p><strong>💿 Love you on Christmas -백예린</strong></p>
+        <p><strong>💿 Borodin: String Quartet No.2 in D major: III.Notturno</strong></p>
+    </div>
+</section>
+
+<section class="hobby-box" aria-labelledby="hobby-heading">
+    <h2 id="hobby-heading">취미</h2>
+    <p>첼로, 독서, 글쓰기</p>
+
+    <div class="hobby-content">
+        <div class="text-info">
+            <p><strong>첼로:</strong> 저는 8살부터 첼로를 시작해, 지금 13년째 첼로를 취미로 연주하고 있어요. 레슨과 학교 오케스트라를 꾸준히 병행했어요. 악기를 연습하다가 잘 안 될떄면 무척 힘든 날도 있지만, 악기를 통해 느끼는 행복과 열정이 훨씬 커요! 에리카에 입학하고 나서도, 오케스트라 동아리인 '엔젤루스'에서 첼로 수석으로 활동하고 있어요.</p>
+
+            <p><strong>독서:</strong> 저는 다독가는 아니지만, 애독가입니다. 중고등학생 시절에 과제로 한달에 한두권 꾸준히 책을 읽던 것이 계기가 되어, 책을 읽는 취미가 생겼습니다. 저는 특히 문학 작품을 좋아합니다. 바쁜 시기에는 책을 많이 읽지 못하지만, 제 메모장에는 읽고 싶은 책들이 한가득이에요!</p>
+            <p>지금 읽고 있는 책은 '영원에 빚을 져서'와, '소크라테스의 변명'입니다.</p>
+
+            <p><strong>글쓰기:</strong> 생각과 감정을 글로 옮기는 것을 좋아합니다. 일기와는 조금 다른 것 같아요. 신년이 되면 매번 일기를 꾸준히 쓰자 다짐하지만, 성공한 적이 없어요.. 그대신 저는 저만의 노트 한권을 지니고 다니면서, 잊고 싶지 않은 감정, 글, 아이디어 등을 발견하면 바로 제 노트 속으로 데려옵니다. 제 검은 노트는 아주 소중한 제 친구예요!</p>
+        </div>
+
+        <div style="min-width:220px; display:flex; flex-direction:column; align-items:center;">
+            <img src="애진취미사진1.jpg" alt="취미 관련 사진 1" class="hobby-photo" width="200">
+
+            <img src="애진취미사진2.jpeg" alt="취미 관련 사진 2" class="hobby-photo square" width="200" height="200">
+        </div>
+    </div>
+</section>
+
+</body>
+</html>

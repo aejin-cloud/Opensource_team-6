@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>개인 포트폴리오 - Phantom 스타일</title>
+<style>
+    :root{
+      --bg: #ffffff;
+      --text: #222;
+      --muted: #6b6b6b;
+
+      /* 개인 색상 */
+      --jin-main: #93C5FD;
+      --yerim-main: #FBCFE8;
+      --chang-main: #111111;
+      --aejin-main: #D6C4A0;
+      --aejin-accent: #A3E635;
+
+      --container-w: 1000px;
+    }
+
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{
+      font-family: Inter,system-ui;
+      background:var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+    .wrap{max-width:var(--container-w);margin:40px auto;padding:24px}
+
+    /* 배너 */
+    .banner{
+      display:flex;gap:32px;align-items:center;justify-content:space-between;
+      background:#fafafa;border-radius:16px;padding:36px;
+      box-shadow:0 6px 20px rgba(0,0,0,0.06);margin-bottom:40px;
+    }
+    .slogan{font-size:28px;font-weight:700;margin-bottom:12px}
+    .subtitle{color:var(--muted)}
+    .btn{padding:10px 16px;border-radius:10px;border:1px solid #e6e6e6;background:#fff}
+    .btn:hover{background:#f2f2f2;cursor:pointer}
+
+    /* 🔥 네모 박스 기본 */
+    section.person{
+      margin-top:28px;
+      padding:28px;
+      border-radius:16px;
+      box-shadow:0 8px 28px rgba(0,0,0,0.05);
+      cursor:pointer;
+      transition:transform .18s;
+    }
+    section.person:hover{transform:translateY(-6px)}
+
+    /* 🔥 개인별 배경색 적용 */
+    .person.jin{ background:rgba(147,197,253,0.35); }
+    .person.yerim{ background:rgba(251,207,232,0.45); }
+    .person.chang{ background:rgba(17,17,17,0.10); }
+    .person.aejin{ background:rgba(214,196,160,0.40); }
+
+    .head{display:flex;gap:20px;align-items:center}
+    .avatar-lg{
+      width:120px;height:120px;border-radius:50%;
+      background-size:cover;background-position:center;
+    }
+
+    .jin-photo{background-image:url('jingeun.png')}
+    .yerim-photo{background-image:url('yerim.png')}
+    .changmin-photo{background-image:url('changmin.png')}
+    .aejin-photo{background-image:url('aejin.png')}
+    .aejin-photo{
+  background-image:url('aejin.png');
+  background-position: top center; /* 머리가 더 보이게 */
+  background-size: cover;
+}
+
+
+   /* ✔ 이름 뒤 흰색 동그라미 배경 넣기 */
+.jin-name,
+.yerim-name,
+.changmin-name,
+.aejin-name{
+  background:#ffffff;
+  padding:6px 14px;
+  border-radius:50px;   /* 완전 동그라미 느낌 */
+  font-weight:600;
+  display:inline-block;
+}
+</style>
+
+</head>
+
+<body>
+<div class="wrap">
+
+  <!-- 배너 -->
+  <div class="banner">
+    <div>
+      <div class="slogan">🎓오픈소스 6조 개인 포트폴리오</div>
+      <div class="subtitle">~~~~~~~~~~~~~~</div>
+    </div>
+  </div>
+
+  <!-- 🔥🔥 아래 네모 4개만 남김 + 클릭하면 이동하게 설정 -->
+  <section class="person jin" onclick="location.href='jin.html'">
+    <div class="head">
+      <div class="avatar-lg jin-photo"></div>
+      <div><h2><span class="jin-name">진근</span></h2></div>
+    </div>
+  </section>
+
+<section class="person yerim" onclick="location.href='yerim.html'">
+  <div class="head">
+    <div class="avatar-lg yerim-photo"></div>
+    <div>
+      <h2><span class="yerim-name">예림</span></h2>
+      <p style="margin-top:6px; font-size:15px; color:#555;">
+        "나는 끈기와 성실함이 있는 사람이다."
+      </p>
+    </div>
+  </div>
+</section>
+
+
+  <section class="person chang" onclick="location.href='changmin.html'">
+    <div class="head">
+      <div class="avatar-lg changmin-photo"></div>
+      <div><h2><span class="changmin-name">창민</span></h2></div>
+    </div>
+  </section>
+
+  <section class="person aejin" onclick="location.href='aejin.html'">
+    <div class="head">
+      <div class="avatar-lg aejin-photo"></div>
+      <div><h2><span class="aejin-name">애진</span></h2></div>
+    </div>
+  </section>
+
+  <div style="margin-top:40px;text-align:center;color:var(--muted)">
+    © 2025 개인 포트폴리오
+  </div>
+
+</div>
+</body>
+</html>
