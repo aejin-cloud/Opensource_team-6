@@ -5,10 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>애진 소개</title>
 
-    <!-- SUIT 기본 폰트 -->
     <link href="https://cdn.jsdelivr.net/gh/sunn-us/SUIT/fonts/static/woff2/SUIT.css" rel="stylesheet">
 
-    <!-- 고운돋움(Gowun Dodum) 폰트 추가 -->
     <link href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="assets/css/main.css" />
@@ -31,7 +29,8 @@
         .mbti-box,
         .likes-box,
         .hobby-box,
-        .personality-box {
+        .personality-box,
+        .motto-box {
             max-width: 800px;
             margin:50px auto;
             background:#ffffff;
@@ -42,7 +41,8 @@
 
         .intro-content,
         .mbti-content,
-        .hobby-content {
+        .hobby-content,
+        .motto-content {
             display:flex;
             gap:20px;
             align-items:flex-start;
@@ -53,6 +53,22 @@
 
         .mbti-content { flex-direction:row-reverse; }
         .hobby-content { justify-content:space-between; text-align:justify; }
+        
+        /* 좌우명 전용 스타일 */
+        .motto-content {
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            background-color: #fafafa;
+            padding: 40px 20px;
+            /* 박스가 여러 개일 때 간격 띄우기 */
+            margin-bottom: 20px;
+        }
+        
+        /* 마지막 박스는 마진 제거 */
+        .motto-content:last-child {
+            margin-bottom: 0;
+        }
 
         .profile-photo {
             width:150px;
@@ -101,6 +117,21 @@
             list-style-type:disc;
             margin-left:20px;
         }
+
+        /* 좌우명 텍스트 강조 */
+        .motto-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: #333;
+            margin-bottom: 15px;
+            word-break: keep-all; /* 단어 단위 줄바꿈 */
+        }
+        
+        .motto-desc {
+            font-size: 16px;
+            color: #666;
+            max-width: 600px;
+        }
     </style>
 </head>
 <body>
@@ -129,7 +160,7 @@
 
     <div class="family-content">
         <p>짐바브웨 언어로 '쉴터'라는 뜻을 가진 '움툼지'는 우리 가족 이름입니다.</p>
-        <p>엄마, 아빠, 오빠, 저, 남동생, 여동생, 그리고 토끼와 강아지까지 대가족을 이루고 있어요.</p>
+        <p>아빠, 엄마, 오빠, 저, 남동생, 여동생, 그리고 토끼와 강아지까지 대가족을 이루고 있어요.</p>
         <p>손님도 끊이지 않는 항상 복작복작하지만 우리집이지만, 방문하는 모든 이들에게 평범한 행복을 주는 쉴터가 되길 바라요!</p>
         <p>움툼지는 제가 언제든 쉬어갈 수 있는 든든한 곳입니다.</p>
     </div>
@@ -206,6 +237,32 @@
         </div>
     </div>
 </section>
+
+<section class="motto-box" aria-labelledby="motto-heading">
+    <h2 id="motto-heading">좌우명</h2>
+    <p>삶을 대하는 태도</p>
+  <div class="motto-content">
+        <p class="motto-text">
+            "자녀들아 우리가 말과 혀로만 사랑하지 말고<br>
+            오직 행함과 진실함으로 하자"
+        </p>
+        <p class="motto-desc">
+            (요한일서 3:18)
+        </p>
+        <p>이 말씀 구절은 제 이름 '애진'의 뜻이에요.</p>   
+        <p> 저에게 사랑은 쉬우면서도 쉽지 않아요. 사랑은 남을 이해하고, 용서하는 것을 포함하니까요. 내가 당연히 좋아해서 시작되는 마음이 아닌, 남을 사랑하겠다는 마음을 먹는 것. 말뿐 아니라 행동으로 사랑하는 삶을 살고 싶어요. </p> 
+    </div>
+
+    <div class="motto-content">
+        <p class="motto-text">"작은 일에는 원칙이 아닌 연민으로"</p>
+        <p class="motto-desc">
+            원칙을 중요하게 생각하지만, 때로는 사람을 향한 따뜻한 마음이 먼저일 때가 있다고 생각해요.<br>
+            스스로에게도, 타인에게도 너무 엄격하기보다는 이해와 사랑으로 다가가고 싶습니다. 그것이 자신과 상대 모두에게 도움이 되는 길이라고 생각해요.
+        </p>
+    </div>
+</section>
+
+<div style="height: 100px;"></div>
 
 </body>
 </html>
