@@ -11,7 +11,6 @@
       --text: #222;
       --muted: #6b6b6b;
 
-      /* 개인 색상 */
       --jin-main: #93C5FD;
       --yerim-main: #FBCFE8;
       --chang-main: #111111;
@@ -33,38 +32,48 @@
       line-height: 1.6;
     }
 
+    /* 상단 ERICA 흐린 배경 영역 */
+   .hero {
+  width: 100%;
+  height: 350px;
+  background-image: url("ERICA.jpg");
+  background-size: cover;
+  background-position: center 67%;  /* ← 핵심 수정! */
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  filter: brightness(85%);
+}
+
+    /* 흐림 효과 오버레이 */
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      backdrop-filter: blur(4px);
+      background: rgba(0, 0, 0, 0.25);
+    }
+
+    .hero-text {
+      position: relative;
+      color: white;
+      font-size: 32px;
+      font-weight: 700;
+      z-index: 2;
+      padding: 0 20px;
+      text-shadow: 0 4px 10px rgba(0,0,0,0.5);
+    }
+
     .wrap {
       max-width: var(--container-w);
       margin: 40px auto;
-      padding: 24px;
+      padding: 0 24px;
     }
 
-    /* 배너 */
-    .banner {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      align-items: center;
-      justify-content: center;
-      background: #fafafa;
-      border-radius: 16px;
-      padding: 36px;
-      box-shadow: 0 6px 20px rgba(0,0,0,0.06);
-      margin-bottom: 40px;
-      text-align: center;
-    }
-
-    .slogan {
-      font-size: 28px;
-      font-weight: 700;
-      margin-bottom: 12px;
-    }
-
-    .subtitle {
-      color: var(--muted);
-    }
-
-    /* 카드 */
+    /* 카드 공통 스타일 */
     section.person {
       margin-top: 28px;
       padding: 28px;
@@ -78,17 +87,14 @@
     }
 
     /* 배경색 */
-    .person.jin    { background: rgba(147,197,253,0.35); }
-    .person.yerim  { background: rgba(251,207,232,0.45); }
-    .person.chang  { background: rgba(17,17,17,0.10); }
-    .person.aejin  { background: rgba(214,196,160,0.40); }
+    .jin { background: rgba(147,197,253,0.35); }
+    .yerim { background: rgba(251,207,232,0.45); }
+    .chang { background: rgba(17,17,17,0.10); }
+    .aejin { background: rgba(214,196,160,0.40); }
 
-    /* 정렬 단순화 */
     .head {
       display: flex;
-      flex-direction: column;   /* 사진 위, 이름 아래 */
-      align-items: left;
-      text-align: left;
+      flex-direction: column;
       gap: 14px;
     }
 
@@ -98,24 +104,19 @@
       border-radius: 50%;
       background-size: cover;
       background-position: center;
-      flex-shrink: 0;
     }
 
-    /* 사진 */
-    .jin-photo      { background-image: url('진근메인배너.png'); }
-    .yerim-photo    { background-image: url('예림메인배너.png'); }
+    /* 사진 파일 연결 */
+    .jin-photo { background-image: url('진근메인배너.png'); }
+    .yerim-photo { background-image: url('예림메인배너.png'); }
     .changmin-photo { background-image: url('창민메인배너.png'); }
-
-    /* 애진 프로필 전용 스타일 */
     .aejin-photo {
       background-image: url('애진메인배너.png');
       background-position: top center;
-      background-size: cover;
-      border: 6px solid #ffffff;   /* 동그라미 흰 테두리 */
-      background-color: #ffffff;   /* 빈 부분 흰색 */
+      border: 6px solid #ffffff;
     }
 
-    /* 이름 (흰 배경 제거 후 일반 글자만) */
+    /* 이름 */
     .jin-name,
     .yerim-name,
     .changmin-name,
@@ -124,63 +125,72 @@
       font-weight: 600;
       color: #222;
     }
+
+    footer {
+      margin: 40px 0;
+      text-align: center;
+      color: var(--muted);
+    }
   </style>
 </head>
 
 <body>
+
+  <!-- 🔥 상단 흐릿한 ERICA 사진 영역 -->
+  <div class="hero">
+    <div class="hero-text">6조를 소개합니다!</div>
+  </div>
+
+  <!-- 메인 콘텐츠 -->
   <div class="wrap">
 
-    <!-- 배너 -->
-    <div class="banner">
-      <div class="slogan">6조를 소개합니다!</div>
-      <div class="subtitle">당신이 알고 싶은 사람을 클릭해주세요</div>
-    </div>
-
-    <!-- 개인 소개 카드 -->
-
-        <section class="person jin" onclick="location.href='jin.html'">
+    <!-- 개인 카드 -->
+    <section class="person jin" onclick="location.href='jin.html'">
       <div class="head">
         <div class="avatar-lg jin-photo"></div>
         <h2 class="jin-name">진근</h2>
-         <p style="margin-top:2px; font-size:15px; color:#555;">
+        <p style="font-size:15px; color:#555;">
           "무슨 일이 있어도 결국에는 지나간다는 마음으로"
         </p>
       </div>
     </section>
 
-       <section class="person yerim" onclick="location.href='yerim.html'">
+    <section class="person yerim" onclick="location.href='yerim.html'">
       <div class="head">
         <div class="avatar-lg yerim-photo"></div>
         <h2 class="yerim-name">예림</h2>
-        <p style="margin-top:2px; font-size:15px; color:#555;">
+        <p style="font-size:15px; color:#555;">
           "나는 끈기와 성실함이 있는 사람이다."
         </p>
       </div>
     </section>
 
-      <section class="person aejin" onclick="location.href='aejin.html'">
+    <section class="person aejin" onclick="location.href='aejin.html'">
       <div class="head">
         <div class="avatar-lg aejin-photo"></div>
         <h2 class="aejin-name">애진</h2>
-        <p style="margin-top:2px; font-size:15px; color:#555;">
+        <p style="font-size:15px; color:#555;">
           "작은 일에는 원칙이 아닌 연민으로"
+        </p>
       </div>
     </section>
 
-     <section class="person chang" onclick="location.href='changmin.html'">
+    <section class="person chang" onclick="location.href='changmin.html'">
       <div class="head">
         <div class="avatar-lg changmin-photo"></div>
         <h2 class="changmin-name">창민</h2>
-         <p style="margin-top:2px; font-size:15px; color:#555;">
+        <p style="font-size:15px; color:#555;">
           "최선을 다하고, 그럼에도 안 되면 포기하라."
         </p>
       </div>
     </section>
 
-    <div style="margin-top:40px; text-align:center; color:var(--muted);">
+    <footer>
       © 2025 개인 포트폴리오
-    </div>
+    </footer>
 
   </div>
+
 </body>
 </html>
+
