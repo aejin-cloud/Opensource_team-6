@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>6조 포트폴리오</title>
 
-  <link rel="preload" as="image" href="erica.JPEG">
+  <link rel="preload" as="image" href="asset/erica.JPEG">
   
   <style>
     :root {
@@ -19,7 +19,7 @@
       font-family: Inter, system-ui;
       line-height: 1.6;
       color: var(--text);
-      background-image: url("ERICA.jpg");
+      background-image: url("asset/erica.JPEG");
       background-size: cover;
       background-position: center;
       background-attachment: fixed;
@@ -122,10 +122,10 @@
     .name-txt { font-size: 24px; font-weight: 700; color: #111; margin-bottom: 4px; }
     .desc { font-size: 16px; color: #333; font-weight: 500; line-height: 1.5; }
 
-    .jin-photo { background-image: url('jg-main.png'); }
-    .yerim-photo { background-image: url('yr-main.png'); }
-    .changmin-photo { background-image: url('cm-main.png'); }
-    .aejin-photo { background-image: url('aj-main.png'); background-position: top center; background-color: #fff; }
+    .jin-photo { background-image: url('asset/jg-main.png'); }
+    .yerim-photo { background-image: url('asset/yr-main.png'); }
+    .changmin-photo { background-image: url('asset/cm-main.png'); }
+    .aejin-photo { background-image: url('asset/aj-main.png'); background-position: top center; background-color: #fff; }
 
     @keyframes spinReverse {
       from { transform: rotate(0deg); }
@@ -136,10 +136,10 @@
       animation: spinReverse 7s linear infinite;
     }
 
-    section.person.jin.playing .jin-photo { background-image: url('jingeunmusicphoto.jpg'); }
-    section.person.yerim.playing .yerim-photo { background-image: url('yerimalbumcover.PNG'); }
-    section.person.aejin.playing .aejin-photo { background-image: url('aejin-music-cover.PNG'); }
-    section.person.chang.playing .changmin-photo { background-image: url('changminmusicphoto.jpg'); }
+    section.person.jin.playing .jin-photo { background-image: url('asset/jingeunmusicphoto.jpg'); }
+    section.person.yerim.playing .yerim-photo { background-image: url('asset/yerimalbumcover.PNG'); }
+    section.person.aejin.playing .aejin-photo { background-image: url('asset/aejin-music-cover.PNG'); }
+    section.person.chang.playing .changmin-photo { background-image: url('asset/changminmusicphoto.jpg'); }
 
     footer { margin-top: 80px; text-align: center; color: rgba(255,255,255,0.6); font-size: 14px; }
 
@@ -157,7 +157,7 @@
 
   <div class="wrap">
     
-    <section class="person jin" data-target="jin-bgm" data-link="jin.html">
+    <section class="person jin" data-target="jin-bgm" data-link="html/jin.html">
       <div class="head">
         <div class="profile-left">
           <div class="avatar-lg jin-photo"></div>
@@ -172,10 +172,10 @@
           <svg class="play-icon-svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
-      <audio id="jin-bgm" preload="auto" src="roykimuntilreachyou.mp3"></audio>
+      <audio id="jin-bgm" preload="auto" src="audio/roykimuntilreachyou.mp3"></audio>
     </section>
 
-    <section class="person yerim" data-target="yerim-bgm" data-link="yerim.html">
+    <section class="person yerim" data-target="yerim-bgm" data-link="html/yerim.html">
       <div class="head">
         <div class="profile-left">
           <div class="avatar-lg yerim-photo"></div>
@@ -189,10 +189,10 @@
           <svg class="play-icon-svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
-      <audio id="yerim-bgm" preload="auto" src="damonsyearmp3.mp3"></audio>
+      <audio id="yerim-bgm" preload="auto" src="audio/damonsyearmp3.mp3"></audio>
     </section>
 
-    <section class="person aejin" data-target="aejin-bgm" data-link="aejin.html">
+    <section class="person aejin" data-target="aejin-bgm" data-link="html/aejin.html">
       <div class="head">
         <div class="profile-left">
           <div class="avatar-lg aejin-photo"></div>
@@ -206,10 +206,10 @@
           <svg class="play-icon-svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
-      <audio id="aejin-bgm" preload="auto" src="sanchaek.mp3"></audio>
+      <audio id="aejin-bgm" preload="auto" src="audio/sanchaek.mp3"></audio>
     </section>
 
-    <section class="person chang" data-target="chang-bgm" data-link="changmin.html">
+    <section class="person chang" data-target="chang-bgm" data-link="html/changmin.html">
       <div class="head">
         <div class="profile-left">
           <div class="avatar-lg changmin-photo"></div>
@@ -224,7 +224,7 @@
           <svg class="play-icon-svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
-      <audio id="chang-bgm" preload="auto" src="overture(mytragicstory).mp3"></audio>
+      <audio id="chang-bgm" preload="auto" src="audio/overture(mytragicstory).mp3"></audio>
     </section>
 
     <footer>© 2025 개인 포트폴리오</footer>
