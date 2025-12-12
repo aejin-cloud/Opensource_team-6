@@ -23,7 +23,6 @@
             margin-bottom:40px;
         }
 
-        /* 큰 카드 박스 */
         .card-box {
             background: #1c1c1c;
             padding: 25px;
@@ -32,23 +31,30 @@
             box-shadow:0 4px 10px rgba(0,0,0,0.4);
         }
 
-        /* 메인 제목 */
         .card-box h3 {
             font-size: 24px;
             text-align: center;
             margin-bottom:20px;
         }
 
-        /* 서브 박스 */
         .sub-box {
             background:#2a2a2a;
             margin-top:20px;
             padding:20px;
             border-radius:12px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
         }
 
-        ul {
-            padding-left:20px;
+        .sub-box img {
+            width:120px;
+            height:auto;
+            border-radius:8px;
+        }
+
+        .sub-text {
+            max-width:60%;
         }
     </style>
 </head>
@@ -58,7 +64,6 @@
 <div class="intro-box">
     <h2>김창민 자기소개</h2>
 
-    <!-- 1. 기본 정보 -->
     <div class="card-box">
         <h3>기본 정보</h3>
         <p>이름: 김창민</p>
@@ -69,41 +74,44 @@
         <p>MBTI: INTJ</p>
     </div>
 
-    <!-- 2. 좌우명 -->
     <div class="card-box">
         <h3>좌우명</h3>
         <p>"최선을 다하고, 그럼에도 안되면 포기해라"</p>
     </div>
 
-    <!-- 3. 좋아하는 것 -->
     <div class="card-box">
         <h3>좋아하는 것</h3>
         <ul>
             <li>독서</li>
-            <li>무라카미 하루키</li>
-            <li>다자이 오사무</li>
+            <li>뮤지컬</li>
             <li>수면</li>
-            <li>스포츠(보는 것만)</li>
             <li>겨울</li>
         </ul>
     </div>
 
-    <!-- 4. 취미 -->
     <div class="card-box">
         <h3>취미</h3>
-        <p>독서</p>
 
-        <!-- 기존 서브칸: 추천 책 -->
         <div class="sub-box">
-            <h4>추천하는 책</h4>
-            <p>무라카미 하루키<노르웨이의 숲></p>
+            <div class="sub-text">
+                <h4>소설</h4>
+                <p>무라카미 하루키 &lt;노르웨이의 숲&gt;</p>
+                <p>다자이 오사무 &lt;사양&gt;</p>
+                <p>룰루 밀러 &lt;물고기는 존재하지 않는다&gt;</p>
+            </div>
+            <img src="노르웨이의 숲.jpg" alt="노르웨이의 숲 이미지" />
         </div>
 
-        <!-- 추가된 서브칸 -->
         <div class="sub-box">
-            <h4>추천 뮤지컬</h4>
-            <p>----</p>
+            <div class="sub-text">
+                <h4>뮤지컬</h4>
+                <p>&lt;드라큘라&gt;</p>
+                <p>&lt;팬텀&gt;</p>
+                <p>&lt;몬테크리스토&gt;</p>
+            </div>
+            <img src="드라큘라.webp" alt="드라큘라 포스터" />
         </div>
+
     </div>
 
 </div>
