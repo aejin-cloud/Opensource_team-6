@@ -57,6 +57,7 @@
       margin: 0 auto; padding: 40px 24px 100px;
     }
 
+    /* cursor: pointer 추가 및 호버 효과 강화 */
     section.person {
       margin-top: 60px; padding: 32px;
       border-radius: 20px; cursor: pointer;
@@ -64,13 +65,15 @@
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
       border: 1px solid rgba(255, 255, 255, 0.2);
       opacity: 0; transform: translateY(50px);
-      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+      transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.3s ease, box-shadow 0.3s ease;
     }
 
     section.person.active { opacity: 1; transform: translateY(0); }
+    
+    /* 호버 시 조금 더 위로 뜨고 그림자 강조 */
     section.person:hover {
       transform: translateY(-8px) scale(1.02);
-      box-shadow: 0 12px 40px rgba(0,0,0,0.4);
+      box-shadow: 0 12px 40px rgba(255,255,255,0.2);
     }
 
     .jin { background: rgba(147, 197, 253, 0.85); }
@@ -80,6 +83,7 @@
 
     .head {
       display: flex; justify-content: space-between; align-items: center;
+      pointer-events: none; /* 내부 요소가 마우스 이벤트를 뺏지 않도록 설정 */
     }
 
     .profile-left {
@@ -88,7 +92,7 @@
 
     .music-right {
       display: flex; flex-direction: column; align-items: flex-end;
-      color: #333; cursor: help;
+      color: #333; 
       padding: 10px;
     }
 
@@ -102,8 +106,9 @@
       transition: transform 0.3s ease, fill 0.3s;
     }
 
-    .music-right:hover .play-icon-svg {
-      transform: scale(1.2); fill: #000;
+    /* 카드가 재생 중일 때 아이콘 애니메이션 */
+    section.person.playing .play-icon-svg {
+      fill: #000; transform: scale(1.2);
     }
 
     .avatar-lg {
@@ -134,11 +139,7 @@
     section.person.jin.playing .jin-photo { background-image: url('진근음악사진.jpg'); }
     section.person.yerim.playing .yerim-photo { background-image: url('예림앨범커버.png'); }
     section.person.aejin.playing .aejin-photo { background-image: url('애진노래커버.png'); }
-
-    /* ★ 창민 - 새 음악 커버 적용 */
-    section.person.chang.playing .changmin-photo {
-      background-image: url('창민음악사진.jpg');
-    }
+    section.person.chang.playing .changmin-photo { background-image: url('창민음악사진.jpg'); }
 
     footer { margin-top: 80px; text-align: center; color: rgba(255,255,255,0.6); font-size: 14px; }
 
@@ -156,8 +157,7 @@
 
   <div class="wrap">
     
-    <!-- 진근 -->
-    <section class="person jin" onclick="location.href='jin.html'">
+    <section class="person jin" data-target="jin-bgm" data-link="jin.html">
       <div class="head">
         <div class="profile-left">
           <div class="avatar-lg jin-photo"></div>
@@ -167,7 +167,7 @@
           </div>
         </div>
         
-        <div class="music-right" data-target="jin-bgm">
+        <div class="music-right">
           <div class="song-title">🎵 그대에게 닿을 때까지 - 로이킴</div>
           <svg class="play-icon-svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         </div>
@@ -175,8 +175,7 @@
       <audio id="jin-bgm" preload="auto" src="로이킴 - 그대에게 닿을 때까지.mp3"></audio>
     </section>
 
-    <!-- 예림 -->
-    <section class="person yerim" onclick="location.href='yerim.html'">
+    <section class="person yerim" data-target="yerim-bgm" data-link="yerim.html">
       <div class="head">
         <div class="profile-left">
           <div class="avatar-lg yerim-photo"></div>
@@ -185,7 +184,7 @@
             <p class="desc">"잘하고 있고, 잘해왔고, 잘할 거야"</p>
           </div>
         </div>
-        <div class="music-right" data-target="yerim-bgm">
+        <div class="music-right">
           <div class="song-title">🎵 yours - 데이먼스 이어</div>
           <svg class="play-icon-svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         </div>
@@ -193,8 +192,7 @@
       <audio id="yerim-bgm" preload="auto" src="데이먼스 이어 mp3.mp3"></audio>
     </section>
 
-    <!-- 애진 -->
-    <section class="person aejin" onclick="location.href='aejin.html'">
+    <section class="person aejin" data-target="aejin-bgm" data-link="aejin.html">
       <div class="head">
         <div class="profile-left">
           <div class="avatar-lg aejin-photo"></div>
@@ -203,7 +201,7 @@
             <p class="desc">"작은 일에는 원칙이 아닌 연민으로"</p>
           </div>
         </div>
-        <div class="music-right" data-target="aejin-bgm">
+        <div class="music-right">
           <div class="song-title">🎵 산책 - 백예린</div>
           <svg class="play-icon-svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         </div>
@@ -211,8 +209,7 @@
       <audio id="aejin-bgm" preload="auto" src="백예린.mp3"></audio>
     </section>
 
-    <!-- 창민 (완성된 버전) -->
-    <section class="person chang" onclick="location.href='changmin.html'">
+    <section class="person chang" data-target="chang-bgm" data-link="changmin.html">
       <div class="head">
         <div class="profile-left">
           <div class="avatar-lg changmin-photo"></div>
@@ -222,13 +219,11 @@
           </div>
         </div>
 
-        <div class="music-right" data-target="chang-bgm">
+        <div class="music-right">
           <div class="song-title">🎵 야래향 - 심규선</div>
           <svg class="play-icon-svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
-
-      <!-- ★ 네가 준 mp3파일 이름 그대로 사용 -->
       <audio id="chang-bgm" preload="auto" src="심규선 - 야래향 夜來香.mp3"></audio>
     </section>
 
@@ -236,6 +231,7 @@
   </div>
 
   <script>
+    /* 스크롤 애니메이션 */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('active');
@@ -245,46 +241,59 @@
 
     document.querySelectorAll('.person').forEach(card => observer.observe(card));
 
-    const musicTriggers = document.querySelectorAll('.music-right');
-    const allAudios = document.querySelectorAll('audio');
+    /* 음악 및 페이지 이동 로직 */
     const allCards = document.querySelectorAll('.person');
+    const allAudios = document.querySelectorAll('audio');
 
+    // 모든 음악 정지 함수
     function stopAllMusic() {
       allAudios.forEach(audio => {
         audio.pause();
-        audio.currentTime = 0;
+        audio.currentTime = 0; // 처음으로 되감기 (호버 아웃 시)
       });
       allCards.forEach(card => {
         card.classList.remove('playing');
       });
     }
 
-    musicTriggers.forEach(trigger => {
-      trigger.addEventListener('mouseenter', (e) => {
-        stopAllMusic();
+    allCards.forEach(card => {
+      const audioId = card.getAttribute('data-target');
+      const audio = document.getElementById(audioId);
+      const targetUrl = card.getAttribute('data-link');
 
-        const audioId = trigger.getAttribute('data-target');
-        const audio = document.getElementById(audioId);
-        const card = trigger.closest('.person');
-
+      // 1. 마우스 올렸을 때: 재생
+      card.addEventListener('mouseenter', () => {
+        stopAllMusic(); // 다른 음악 끄기
         if (audio) {
           audio.volume = 0.5;
-          var playPromise = audio.play();
-          
+          const playPromise = audio.play();
           if (playPromise !== undefined) {
-            playPromise.then(() => {
-              card.classList.add('playing');
-            }).catch(err => console.log('재생 에러:', err));
+            playPromise
+              .then(() => card.classList.add('playing'))
+              .catch(err => console.log('재생 에러:', err));
           }
         }
       });
 
-      trigger.addEventListener('mouseleave', () => {
+      // 2. 마우스 뗐을 때: 정지
+      card.addEventListener('mouseleave', () => {
         stopAllMusic();
       });
 
-      trigger.addEventListener('click', (e) => {
-        e.stopPropagation();
+      // 3. 클릭 했을 때: 현재 시간 저장 후 이동
+      card.addEventListener('click', (e) => {
+        e.preventDefault(); // 즉시 이동 방지
+
+        if (audio) {
+          // 다음 페이지에서 이어서 재생하기 위해 현재 시간 저장
+          sessionStorage.setItem('bgmTime', audio.currentTime);
+          sessionStorage.setItem('bgmAutoplay', 'true');
+        }
+
+        // 페이지 이동
+        if (targetUrl) {
+          window.location.href = targetUrl;
+        }
       });
     });
   </script>
