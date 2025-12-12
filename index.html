@@ -94,7 +94,7 @@
     /* 오른쪽 음악 아이콘 그룹 */
     .music-right {
       display: flex; flex-direction: column; align-items: flex-end;
-      color: #333; cursor: help; /* 마우스를 올리면 물음표 커서(선택사항) */
+      color: #333; cursor: help; /* 마우스를 올리면 물음표 커서 */
       padding: 10px; /* 마우스 감지 영역 넓히기 */
     }
 
@@ -120,10 +120,9 @@
       background-size: cover; background-position: center;
       border: 4px solid rgba(255,255,255,0.5);
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-      transition: background-image 0.3s ease; /* 이미지 변경 부드럽게 */
+      transition: background-image 0.3s ease; 
     }
 
-    /* 이름 및 텍스트 */
     .name-txt { font-size: 24px; font-weight: 700; color: #111; margin-bottom: 4px; }
     .desc { font-size: 16px; color: #333; font-weight: 500; line-height: 1.5; }
 
@@ -134,35 +133,23 @@
     .aejin-photo { background-image: url('애진메인배너.png'); background-position: top center; background-color: #fff; }
 
     /* ==========================================================
-       [애니메이션 & 앨범아트 로직]
-       음악 영역(.music-right)에 호버하거나(.playing 클래스 붙음), 
-       사진 자체에 호버했을 때 앨범아트로 바뀌고 회전
+       [애니메이션]
        ========================================================== */
     @keyframes spinReverse {
       from { transform: rotate(0deg); }
       to { transform: rotate(-360deg); }
     }
 
-    /* 회전 애니메이션 적용 조건: 사진에 마우스 올림 OR 음악 재생 중(playing 클래스) */
-    .avatar-lg:hover,
+    /* 음악 재생 중(.playing)일 때만 회전 */
     section.person.playing .avatar-lg {
       animation: spinReverse 3s linear infinite;
     }
 
-    /* [중요] 각 팀원별 앨범 커버 이미지 교체 (마우스 올렸을 때) */
-    /* 파일명을 본인 프로젝트에 맞게 꼭 수정해주세요! */
-    .avatar-lg:hover.jin-photo, section.person.jin.playing .jin-photo {
-      background-image: url('JIN_ALBUM.jpg'); 
-    }
-    .avatar-lg:hover.yerim-photo, section.person.yerim.playing .yerim-photo {
-      background-image: url('YERIM_ALBUM.jpg');
-    }
-    .avatar-lg:hover.aejin-photo, section.person.aejin.playing .aejin-photo {
-      background-image: url('애진노래커버.png');
-    }
-    .avatar-lg:hover.changmin-photo, section.person.chang.playing .changmin-photo {
-      background-image: url('CHANG_ALBUM.jpg');
-    }
+    /* [앨범 커버 교체] 음악 재생 중(.playing)일 때만 이미지 변경 */
+    section.person.jin.playing .jin-photo { background-image: url('진근음악사진.jpg'); }
+    section.person.yerim.playing .yerim-photo { background-image: url('YERIM_ALBUM.jpg'); }
+    section.person.aejin.playing .aejin-photo { background-image: url('애진노래커버.png'); }
+    section.person.chang.playing .changmin-photo { background-image: url('CHANG_ALBUM.jpg'); }
 
     footer { margin-top: 80px; text-align: center; color: rgba(255,255,255,0.6); font-size: 14px; }
     @keyframes bounce { 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
@@ -191,11 +178,11 @@
         </div>
         
         <div class="music-right" data-target="jin-bgm">
-          <div class="song-title">🎵 Jin's Choice</div>
+          <div class="song-title">🎵 그대에게 닿을 때 까지 - 로이킴</div>
           <svg class="play-icon-svg" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
         </div>
       </div>
-      <audio id="jin-bgm" preload="auto" src="JIN_SONG.mp3"></audio>
+      <audio id="jin-bgm" preload="auto" src="로이킴.mp3"></audio>
     </section>
 
     <section class="person yerim" onclick="location.href='yerim.html'">
@@ -253,7 +240,7 @@
   </div>
 
   <script>
-    /* 1. 스크롤 등장 애니메이션 (기존 동일) */
+    /* 1. 스크롤 등장 애니메이션 */
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) entry.target.classList.add('active');
@@ -263,48 +250,55 @@
 
     document.querySelectorAll('.person').forEach(card => observer.observe(card));
 
-    /* 2. 음악 재생 로직 (4명 공통 적용) */
+    /* 2. 음악 재생 로직 (중복 방지 강화) */
     const musicTriggers = document.querySelectorAll('.music-right');
+    const allAudios = document.querySelectorAll('audio'); // 모든 오디오 태그 수집
+    const allCards = document.querySelectorAll('.person'); // 모든 카드 수집
+
+    // [핵심 기능] 모든 음악을 끄고 초기화하는 함수
+    function stopAllMusic() {
+      allAudios.forEach(audio => {
+        audio.pause(); 
+        audio.currentTime = 0; // 재생 위치 초기화
+      });
+      allCards.forEach(card => {
+        card.classList.remove('playing'); // 모든 카드의 회전 효과 제거
+      });
+    }
 
     musicTriggers.forEach(trigger => {
       // 마우스 진입 시
       trigger.addEventListener('mouseenter', (e) => {
-        // 부모의 클릭 이벤트(페이지 이동)가 버블링 되는 것을 방지하려면 아래 주석 해제
-        // e.stopPropagation(); 
         
+        // 1단계: 먼저 켜져있는 모든 음악을 끈다 (중복 방지)
+        stopAllMusic(); 
+
+        // 2단계: 내가 선택한 음악만 켠다
         const audioId = trigger.getAttribute('data-target');
         const audio = document.getElementById(audioId);
-        const card = trigger.closest('.person'); // 현재 카드 찾기
+        const card = trigger.closest('.person');
 
         if (audio) {
-          audio.currentTime = 0; // 처음부터 재생
-          audio.volume = 0.5;
+          audio.volume = 0.5; // 볼륨 조절
+          var playPromise = audio.play();
           
-          const playPromise = audio.play();
           if (playPromise !== undefined) {
             playPromise.then(() => {
-              // 재생 성공 시 카드에 playing 클래스 추가 (사진 회전 효과용)
-              card.classList.add('playing');
-            }).catch(err => console.log('재생 막힘:', err));
+              card.classList.add('playing'); // 해당 카드만 회전 효과 시작
+            }).catch(err => console.log('재생 에러(브라우저 정책 등):', err));
           }
         }
       });
 
       // 마우스 나갈 때
       trigger.addEventListener('mouseleave', () => {
-        const audioId = trigger.getAttribute('data-target');
-        const audio = document.getElementById(audioId);
-        const card = trigger.closest('.person');
-
-        if (audio) {
-          audio.pause();
-          card.classList.remove('playing'); // 회전 효과 중지
-        }
+        // 나갈 때도 안전하게 모두 끈다 (혹은 해당 오디오만 꺼도 됨)
+        stopAllMusic();
       });
 
-      // (선택사항) 아이콘을 클릭했을 때 페이지 이동을 막고 싶다면
+      // 클릭 시 페이지 이동 막기 (옵션)
       trigger.addEventListener('click', (e) => {
-        e.stopPropagation(); // 카드의 onclick 이벤트가 발생하지 않도록 막음
+        e.stopPropagation(); 
       });
     });
   </script>
