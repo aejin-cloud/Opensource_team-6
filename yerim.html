@@ -58,10 +58,10 @@
 <body>
   <div class="container">
 
-    <h1>✨ 자기소개 ✨</h1>
+    <h1> 자기소개 </h1>
 
     <!-- 기본정보 -->
-    <h2>📌 기본정보</h2>
+    <h2> 기본정보</h2>
     <div class="section">
       <p><strong>이름:</strong> 김예림</p>
       <p><strong>생년월일:</strong> 2006년 3월 31일</p>
@@ -71,7 +71,7 @@
     </div>
 
     <!-- 성격 -->
-    <h2>🌟 성격 & MBTI</h2>
+    <h2> 성격 & MBTI</h2>
     <div class="section">
       <p><strong>MBTI:</strong> ISFJ</p>
       <p><strong>성격:</strong> 친해지면 말이 완전 많아진다.</p>
@@ -79,24 +79,53 @@
     </div>
 
     <!-- 취미 / 좋아하는 것 -->
-    <h2>💜 취미 & 좋아하는 것</h2>
+    <h2> 취미 & 좋아하는 것</h2>
     <div class="section">
       <p><strong>취미:</strong> 요리, 만들기, 네일아트 </p>
       <p><strong>좋아하는 것:</strong> 잠자기, 유튜브 보기.</p>
     </div>
 
     <!-- 싫어하는 것 -->
-    <h2>🚫 싫어하는 것</h2>
+    <h2>싫어하는 것</h2>
     <div class="section">
       <p>너무 짠 음식, 사람이 너무 많은 곳, 소음</p>
     </div>
 
     <!-- 좌우명 -->
-    <h2>✨ 좌우명</h2>
+    <h2>좌우명</h2>
     <div class="section">
       <p>"잘하고 있고, 잘해왔고, 잘할거야."</p>
     </div>
 
   </div>
+
+  <audio id="my-bgm" src="damonsyearmp3.mp3"></audio> 
+
+<script>
+  window.onload = function() {
+    // 1. 메인 페이지에서 넘겨준 정보 확인
+    const shouldPlay = sessionStorage.getItem('bgmAutoplay');
+    const savedTime = sessionStorage.getItem('bgmTime');
+    const audio = document.querySelector('audio'); // 페이지에 있는 첫번째 오디오 선택
+
+    // 2. 이어서 재생해야 한다면
+    if (shouldPlay === 'true' && savedTime && audio) {
+      audio.currentTime = parseFloat(savedTime); // 저장된 시간으로 이동
+      audio.volume = 0.5; // 볼륨 설정
+      
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log("브라우저 정책상 자동 재생이 차단될 수 있습니다 클릭하면 재생됩니다.");
+        });
+      }
+      
+      // 3. 정보 초기화 (새로고침 시 처음부터 나오게 하려면 주석 해제)
+      // sessionStorage.removeItem('bgmAutoplay');
+    }
+  };
+</script>
+</body>
+</html>
 </body>
 </html>

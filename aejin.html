@@ -148,7 +148,7 @@
     <h2 id="intro-heading">저를 소개합니다</h2>
 
     <div class="intro-content">
-        <img src="애진프로필사진.png" alt="김애진 프로필 사진" class="profile-photo" width="150" height="150">
+        <img src="aejinprofile.PNG" alt="김애진 프로필 사진" class="profile-photo" width="150" height="150">
 
         <div class="text-info">
             <p>이름: 김애진</p>
@@ -240,9 +240,9 @@
         </div>
 
         <div style="min-width:220px; display:flex; flex-direction:column; align-items:center;">
-            <img src="애진취미사진1.jpg" alt="취미 관련 사진 1" class="hobby-photo" width="200">
+            <img src="aj-hobby.JPG" alt="취미 관련 사진 1" class="hobby-photo" width="200">
 
-            <img src="애진취미사진2.jpeg" alt="취미 관련 사진 2" class="hobby-photo square" width="200" height="200">
+            <img src="aj-hobbyy.jpeg" alt="취미 관련 사진 2" class="hobby-photo square" width="200" height="200">
         </div>
     </div>
 </section>
@@ -272,6 +272,35 @@
 </section>
 
 <div style="height: 100px;"></div>
+
+<audio id="my-bgm" src="sanchaek.mp3"></audio> 
+
+<script>
+  window.onload = function() {
+    // 1. 메인 페이지에서 넘겨준 정보 확인
+    const shouldPlay = sessionStorage.getItem('bgmAutoplay');
+    const savedTime = sessionStorage.getItem('bgmTime');
+    const audio = document.querySelector('audio'); // 페이지에 있는 첫번째 오디오 선택
+
+    // 2. 이어서 재생해야 한다면
+    if (shouldPlay === 'true' && savedTime && audio) {
+      audio.currentTime = parseFloat(savedTime); // 저장된 시간으로 이동
+      audio.volume = 0.5; // 볼륨 설정
+      
+      const playPromise = audio.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          console.log("브라우저 정책상 자동 재생이 차단될 수 있습니다 클릭하면 재생됩니다.");
+        });
+      }
+      
+      // 3. 정보 초기화 (새로고침 시 처음부터 나오게 하려면 주석 해제)
+      // sessionStorage.removeItem('bgmAutoplay');
+    }
+  };
+</script>
+</body>
+</html>
 
 </body>
 </html>
